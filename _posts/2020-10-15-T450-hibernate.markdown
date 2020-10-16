@@ -1,0 +1,28 @@
+---
+layout: post
+title:  FreeBSD Hibernate to Disk on a Thinkpad T450
+date:   2020-10-15 21:07:53 -0400
+---
+
+FreeBSD is a great operating system, even on a laptop, but one thing it just doesn't do is Hibernation. On some laptop models you can get working Sleep (S3), but in that state the laptop is in a low power mode and still draining power from the battery to keep RAM refreshed.
+
+I knew I wanted to run FreeBSD on a laptop, but also knew I wanted Hibernation, so after some research I discovered the Intel Rapid Start Technology, a feature on some systems to allow a system to Hibernate without the involvement of the Operating System. FreeBSD just goes to sleep normal, and if kept in S3 longer than a threshold set in BIOS, the Computer will write its memory to disk and turn off. Then upon tuning on, realize It is hibernating, copy the data back to memory and let the OS Resume normally. the OS has no idea anything other than a normal sleep ha occurred. Sounds great, here's what was needed to get this working on my FreeBSD Thinkpad T450
+
+**Requirements**
+
+- A Laptop with Intel Rapid Start Technology. Thinkpad dropped this feature with the T460, so the T450 and T550 are the highest spec Thinkpads where this works.
+- The feature must be enabled in the BIOS and configured how long to wait when sleeping before hibernating
+- An SSD Drive, with a regular old HDD the feature will just silently fail
+- A dedicated partition on your SSD at least as large as your physical RAM. For GPT, the partion guid must be **D3BFE2DE-3DAF-11DF-BA-40-E3A556D89593** for MBR the partion type must be **0x84**
+
+I made sure to purchase my T450 with an SSD and When I installed FreeBSD on my Thinkpad I was sure to create the hibernation partition. I actually created mine at 16Gigs even though I only have 8Gigs or RAM just in case I ever decide to max out the RAM.
+
+**Results**
+
+Turns out it works great. I put my laptop to sleep normally by closing the lid, and if I reopen it in less than 3 hours FreeBSD resumes normally, however if its been >3 hours, the laptop will be powered off and opening the lid does nothing. I then press the power button and am greeted by a special banner on th BIOS screen letting me know its resuming from Disk, then the normal FreeBSD resume process takes over and I'm back where I left off
+
+**Caveats**
+
+I've only noticed one issue using this feature in FreeBSD:
+
+After Sleep -> Resume, sound works fine, but after Sleep -> Hibernate -> Resume, the speakers work fine but audio jack doesn't. Plugging in a cable disables the speakers, but the audiojack still outputs silence. The work around is after waking up the laptop, put it back to sleep and resume immediately. This restores the audiojack. Generally only a slight annoyance, as long as I remember to do the quick Sleep -> Resume cycle before someone calls me on Skype.
