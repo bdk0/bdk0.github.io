@@ -24,7 +24,7 @@ My experience was basically that I could use the computer as a portable workstat
 
 The USB issue wasn't too much of a problem when I had the system docked all the time, I just plugged my mouse and keyboard into the laptop directly rather than through the dock and all was well, and sleeping while docked wasn't too important, but the monitor issues caused me to seek other solutions.
 
-The issue isn't even related to the dock at all- I have the same issue on FreeBSD on this laptop even using the built in VGA Port. Basically if I plug in a monitor while X is running, it won't be recognized or available in xrandr unless I reboot or restart X. I even opened a (thread on the FreeBSD Forum for this)[https://forums.freebsd.org/threads/xorg-xrandr-unable-to-see-monitor-plugged-in-after-x-org-is-running.75622/#post-465676] but haven't been able to resolve it.
+The issue isn't even related to the dock at all- I have the same issue on FreeBSD on this laptop even using the built in VGA Port. Basically if I plug in a monitor while X is running, it won't be recognized or available in xrandr unless I reboot or restart X. I even opened a [thread on the FreeBSD Forum for this](https://forums.freebsd.org/threads/xorg-xrandr-unable-to-see-monitor-plugged-in-after-x-org-is-running.75622/#post-465676) but haven't been able to resolve it.
 
 In the end I ended up using the Thinkpad as a portable FreeBSD station and a separate desktop as my main BSD workstation, which worked much better for me than trying to force the one device into both roles.
 
