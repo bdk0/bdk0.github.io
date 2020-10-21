@@ -1,0 +1,33 @@
+---
+layout: post
+title:  T450 Docking with FreeBSD
+date:   2020-10-19 16:47:00 -0400
+---
+
+After I started working occasionally from my Thinkpad running FreeBSD, I suddenly wanted that environment all the time, but hunching over a laptop to work isn't the best ergonomics for me. Luckily they had a bunch of old unused Thinkpad docking stations at work (model A402) , and IT let me check one out to try out.
+
+I was able to work from home using my Thinkpad docked on my desk with an external monitor, keyboard and mouse, for a few months, but I eventually got myself a desktop for that use (Currently running GhostBSD), and relegated the Thinkpad back to a portable system.
+
+My experience was basically that I could use the computer as a portable workstation around the house and around town, or I could dock it and use it as a Desktop, but couldn't do both without being annoyed. Docking and Undocking just didn't work seamlessly enough under FreeBSD. The dream was to carry my computer around with me, plug it in, keep working on the external monitor, then unplug it and take it with me without missing a beat. I even wrote scripts for dock and undock which would move my windows around between desktops and resize them to how I like them to be when working on the laptop and when working on the desktop (When on the desktop I have two screens, the laptop and external, where I only have the one laptop screen when working portably so I move some stuff to additional workspaces)
+
+**Docking Status and Issues**
+
+- Ethernet works fine on the Dock-- no issues
+
+- USB Mostly works fine, but sometimes if I leave the Thinkpad docked for a few days, I lose the USB devices on the dock and have to physically undock and redock to get them back
+
+- External monitors (DVI and VGA) work as well as the VGA port on the laptop itself, but Monitor Hotplug doesn't work without restarting X for me on this laptop. 
+
+- If I put the laptop to sleep while docked, I can't wake it up reliably
+
+- The Audio jack on the dock doesn't automatically mirror the built in audio jack. It might be possible to configure the audio to output there instead of the laptop jack,but I haven't tried because the laptop jack is more convenient for my setup.
+
+The USB issue wasn't too much of a problem when I had the system docked all the time, I just plugged my mouse and keyboard into the laptop directly rather than through the dock and all was well, and sleeping while docked wasn't too important, but the monitor issues caused me to seek other solutions.
+
+The issue isn't even related to the dock at all- I have the same issue on FreeBSD on this laptop even using the built in VGA Port. Basically if I plug in a monitor while X is running, it won't be recognized or available in xrandr unless I reboot or restart X. I even opened a (thread on the FreeBSD Forum for this)[https://forums.freebsd.org/threads/xorg-xrandr-unable-to-see-monitor-plugged-in-after-x-org-is-running.75622/#post-465676] but haven't been able to resolve it.
+
+In the end I ended up using the Thinkpad as a portable FreeBSD station and a separate desktop as my main BSD workstation, which worked much better for me than trying to force the one device into both roles.
+
+
+
+
