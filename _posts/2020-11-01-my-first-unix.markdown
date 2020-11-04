@@ -1,0 +1,23 @@
+---
+layout: post
+title:  My First Unix
+date:   2020-11-01 16:47:00 -0400
+---
+
+When I was in high school in the 1990's I thought I was some sort of hot sh*t super coder hacker type dude. I was fluent in assembler on my 486, knew MS-DOS inside and out to the point of hot patching and rewriting parts of it, wrote my own TSR multi-tasker, cracked shareware with debug.com, and wrote graphics demos that weren't in the same ballpark as the real demoscene stuff, but I'd managed to convince myself were pretty good anyway. Hell, I was even the 'go to' guy in my peer group when it came to cracking OS/2 software. 486's running MS-DOS (and occasionally OS/2) were obviously the entire computing world, and I was the best programmer in my small town, and that was all there was to that. Then a family friend who'd  and gone off to college came back to visit.
+
+"Do you know any Unix?" he asked me, "Its kind of a big deal"
+
+And while I doubt I would have admitted it at the time, I had never heard of Unix, and it turns out, it is kind of a big deal.
+
+My first experience with a Unix-like OS came in my Junior year of high school. It was the early 1990's and there was this internet thing I'd heard a lot about, but didn't quite understand. (What do we need the internet for anyway really, when we have all these cool local BBS systems). A business a couple of towns over had a BBS for some sort of business purpose that I never quite understood, and if you called up the right person at the company and asked nicely, they would give free access to the general public to log in and use the system on nights and weekends.
+
+The draw of this BBS, over any of the myriad of other local BBS's run by teenage kids out of their bedrooms and basements (including the one by that time running out of my basement), was that it had "The Internet", whatever that meant. "The Internet" in this case turned out to be an online door program, just like all the games I played at other BBSs', but in this case, it just dropped you at a command prompt. Thankfully the BBS also had some instructions you could download, to get started. There was a 'www' program, which seemed dumb to me, no future in this world wide web thing, certainly, but there was also this thing called 'ftp', which was most certainly not dumb.
+
+The BBS's internet gateway was running Linux, of course, I forget the exact version but I recall it was kernel version 0.99 something or other. I knew just enough to ftp to a site, go to a directory that looked interesting, download the index file, then use '!' to spawn a subshell and open the file in 'vi' to read the descriptions of each file and pick the ones I wanted to download, then exit the editor (Esc :q! seemed like the most random way to quit a program to me at the time), exit the subshell, 'GET' the files, and then finally quit ftp and the door and back to the BBS. Then another door to copy files from the Linux box to the BBS, and finally a file transfer area to actually download to my computer over the modem (a blazing 28.8k I believe by that time).
+
+At the time, I had zero interest or understanding of what this Linux thing was. To me it was a glorified ftp client. It seemed clunky and had random weird commands and keystrokes for everything. It was nothing but a weird tool I needed to use to get awesome files from all over the world, and I used it to download all sorts of esoteric information and code to teach myself even more about the important world of computing-- MS-DOS on a 486 home computer. I downloaded stuff like  co-routine libraries for Turbo C, and specifications for accessing DPMI, the important stuff.
+
+It wasn't until a couple of years later when I went off to college (lugging with my my tri-boot 486- MS-DOS, WindowsNT, and OS/2), that I discovered Linux for real-- my room mate was a Linux fanboy and soon had me converted. Our in room dial-up to the school computers provided a terminal into our school computer system (running Ultrix, so my first "real" Unix experience). Rather than the two of us fighting over the room's only phone line, we soon had SLIP set up on his computer, and a null modem running across the room to mine, which meant we could both be telnet'd into the schools computer at the same time. It was like living in the future! Or perhaps like living in 1972 for those whom MS-DOS wasn't cutting edge. My computer soon became a quad-boot system, thanks to a Slackware disk, and over the next few years the other OS's got less and less run time until I was down to just a dual boot Linux/MS-DOS system.
+
+**tldr;** Ultrix. My first Unix was Ultrix.
