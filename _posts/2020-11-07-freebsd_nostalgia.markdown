@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  FreeBSD as a Linux User- Nostalgia
-date:   2020-11-707 12:00:00 -0400
+date:   2020-11-07 12:00:00 -0400
 ---
 
 After twenty plus years using Linux, I finally took a deep dive into the world of BSD last year. Before that I had dipped my feet into FreeBSD-- I had an install of FreeBSD in a VM for a while, but never used it much beyond logging in and looking around (Yup, this is like Linux, but different). Last year, when I repeated the experience, I actually took the time to learn how to get FreeBSD set up to be usable as my work environment and work through the issues I had, and started using it daily, first in a VM, but soon enough directly on the hardware.
