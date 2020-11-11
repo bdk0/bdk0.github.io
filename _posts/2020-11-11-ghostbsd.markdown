@@ -1,0 +1,27 @@
+---
+layout: post
+title:  Initial Experiences with GhostBSD
+date:   2020-11-11 16:47:00 -0400
+---
+
+I've written a lot on here about running FreeBSD on my laptop, but after moving to full-time work from home in March, I wanted a stand-alone desktop system to work from for ergonomics and to free up my laptop to be my portable system since [my docking / undocking experience wasn't great](https://bdk0.github.io/2020/10/19/T450-docking.html). In the beginning of May I made the trek into the office for a day to exchange some hardware, and one of the things I borrowed was a desktop for home office use. The box was a Dell XPS i7-4790 @3.60Ghz with 16G of RAM, so it was also about twice as powerful as my T450 (not that the T450 isn't plenty zippy for my usage under FreeBSD)
+
+At work I had been using it as a Windows system to test some software for an old project, but it had been sitting turned off in the corner for a few months before I stopped going into the office in March. First thing upon getting it set up that night in my home office was to install an OS that wouldn't make me miserable.
+
+My first idea was, of course, to put FreeBSD on it, but I wanted it up and running the same day, and my experience with getting FreeBSD running smoothly on my T450 was that it took a bit of time to get it installed and configured to my liking and everything running smoothly. I briefly installed Void Linux on it, as it was a distribution I had been reading about and was interested in trying it out, but I ran into issues immediately with my SmartCard reader, which I couldn't quickly resolve, and moved on. I hope to go back to Void Linux one day and either resolve the issue, or gather enough information to file a bug report, but I was looking to have everything ready for work in the morning so I moved on.
+
+I knew everything I needed to use worked under FreeBSD, but didn't want to take the time to configure it, so I decided to try [GhostBSD](https://ghostbsd.org). GhostBSD's website claims it as "A simple, elegant desktop BSD Operating System". GhostBSD seems to consider itself as its own OS "based on FreeBSD", but I tend to think of it as FreeBSD preconfigured for a good desktop experience. Even 'uname' seems to agree with me, and reports the OS as FreeBSD.
+
+I chose the community driven Xfce Desktop environment instead of the standard Mate edition, since I tend to use Xfce/OpenBox everywhere these days. I burned the ISO to a USB drive, booted from it, and installation was smooth. In short order I was booted into the X GUI, and everything seemed to be configured and working out of the box including my nvidia graphics card and ZFS. I spent some time installing packages I knew I would need and copying over configurations and customizations from my laptop, and before I went to bed, had a quick set up that would serve as my 'work from home' computer for the forseeable future.
+
+My GhostBSD desktop isn't quite as customized as my laptop, I left a lot more of the default Xfce stuff the installer had set up for me in place, but almost everything works fine. I've had a couple of strange issues with it which I haven't dug into enough to resolve, but they're pretty minor:
+
+* My Xfce theme oddly doesn't seem to apply to my Panel. It works everywhere else, but the panel usually remains the default colors. A couple of times after a reboot it actually came up correct, but 90% of the times it doesn't
+* I've found an nvidia-settings command that lets me stop screen tearing, but it only works on one or the other monitor, if I run it for both, it doesn't work
+* USB Hotplug seems tempermental, If I remove a USB device, the USB subsystem sometimes gets angry and stops detecting devices. Even 'usbconfig' hangs when run. 
+* I did have one 'hangs on boot up after applying updates' problem which was quickly fixed by the developers in the next set of updates and which I'll post a separate post about in the future. Thanks to ZFS and Boot Environments, I was able to keep using my system while waiting for a fix.
+
+In summary, I recommend GhostBSD for anyone who wants a BSD Desktop system and wants it now, with a minimum of twiddling with software configuration and settings.
+
+
+
