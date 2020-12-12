@@ -45,7 +45,7 @@ $ du -L
 4       ./dir
 8       .
 ```
-The man page says that **-L**, "*Dereferences all symbolic links*", but it appears that the man page is not telling the whole story. It appears that **-L** also turns on the "make sure we don't count the same space twice" feature. presumably without that option enabled **du** assumes it doesn't have to worry about such a situation and doesn't run that code, allowing the bind mount to sneak in the back door.
+The man page says that **-L**, "*Dereferences all symbolic links*", but it appears that the man page is not telling the whole story. It appears that **-L** also turns on the "make sure we don't count the same space twice" feature. Presumably without that option enabled, **du** assumes it doesn't have to worry about such a situation and doesn't run that code, allowing the bind mount to sneak in the back door.
 
 You can leave off the **-L** option to tell **du** not to follow symlinks, but what if you don't want to follow bind mounts? There is a convenient **-x** option which will "*skip directories on different filesystems*", which sounds like it would help:
 
@@ -58,7 +58,7 @@ $ du -x
 
 But nope, the tool doesn't see the bind mount as a separate filesystem, since its really part of the same filesystem mounted at a new point.
 
-Unlike the  Linux version of **du**, which is part of GNU Core Utils, the **du** from FreeBSD is a different program, originally from Version 1 AT&T Unix, and it does not appear to make this half-hearted attempt to avoid double counting space when the **-L** option is chosen. On FreeBSD all three directories are shown with the **-L** option is enabled, and the **./dir** and the **./mnt** when it is not enabled. (Using nullfs instead of bind mounts on FreeBSD, since it doesn't support the latter by default)
+Unlike the  Linux version of **du**, which is part of GNU Core Utils, the **du** from FreeBSD is a different program, originally from Version 1 AT&T Unix, and it does not appear to make this attempt to avoid double counting space. On FreeBSD all three directories are shown with the **-L** option is enabled, and the **./dir** and the **./mnt** when it is not enabled. (Using nullfs instead of bind mounts on FreeBSD, since it doesn't support the latter by default)
 
 
 
