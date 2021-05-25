@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Inexplicable" Bugs
+title:  Two Strange Bugs
 date:   2021-05-24 06:47:00 -0400
 ---
 
