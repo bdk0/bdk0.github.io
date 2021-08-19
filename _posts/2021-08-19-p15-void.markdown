@@ -7,7 +7,7 @@ date:   2021-08-19 06:47:00 -0400
 Since moving to full work-from-home eighteen months ago, I've mainly been working from my GhostBSD Desktop, and, when I need to be more mobile, my Thinkpad T450 running FreeBSD (recently upgraded to 12.2). I do have a work provided laptop as well--but as a seven year old Windows machine, I prefer my T450 for most things. As the Windows laptop has started getting unreasonably warm at times, and after a few unexplained lockups, I was approved for a new work laptop, which I could pick out and get reimbursed for. Though I considered a Dell XPS and several different Thinkpads, I ended up purchasing a Thinkpad P15 Gen1 with the following specs:
 
 Lenovo Thinkpad P15 Gen1
-- Intel i7-1085H Processor
+- Intel i7-10875H Processor
 - 64 GB RAM
 - 2TB NVMe SSD
 - 15.6" 1920 x 1080 Display
