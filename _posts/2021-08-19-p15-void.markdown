@@ -1,0 +1,34 @@
+---
+layout: post
+title:  Trying out Void Linux on a Thinkpad P15
+date:   2021-08-19 06:47:00 -0400
+---
+
+Since moving to full work-from-home eighteen months ago, I've mainly been working from my GhostBSD Desktop, and, when I need to be more mobile, my Thinkpad T450 running FreeBSD (recently upgraded to 12.2). I do have a work provided laptop as well--but as a seven year old Windows machine, I prefer my T450 for most things. As the Windows laptop has started getting unreasonably warm at times, and after a few unexplained lockups, I was approved for a new work laptop, which I could pick out and get reimbursed for. Though I considered a Dell XPS and several different Thinkpads, I ended up purchasing a Thinkpad P15 Gen1 with the following specs:
+
+Lenovo Thinkpad P15 Gen1
+- Intel i7-1085H Processor
+- 64 GB RAM
+- 2TB NVMe SSD
+- 15.6" 1920 x 1080 Display
+
+At over six pounds its a bit of a beast, and feels almost as large my 17" Toshiba its replacing. I considered a P15s or P15v for better portability, but the reviews I read showed the P15v having heat issues, and the display on the P15s I was looking at wasn't as bright. I still have my 14" T450 for when I want to grab something more portable.
+
+Unlike my T450 where I removed Windows and installed FreeBSD upon first powerup, I wanted to leave this one as a Dual Boot with Windows and Linux. I decided to go with Linux instead of FreeBSD on this one for a few reasons: Hardware support seems iffy for hardware this new on FreeBSD, especially the WiFi card, and WiFi in general is slow on FreeBSD. I've also been wanting to try out Void Linux for a while, so this gives me the opportunity to do so.
+
+The Void Linux install was more or less painless. I burned the ISO that included the Xfce desktop onto a USB Dongle from my GhostBSD machine, booted up Windows and shrank its partition from 2TB down to about 1.2TB, and disabled secure boot. On bootup I used F12 for the boot menu in order to tell it to boot from the USB Dongle, and ran the Void Linux live/install image. I was pleasantly reassured when everything came up and ran fine right out of the box, including WiFi. The install process was also fairly straight forward, though a little more guidance would have been appreciated-- it was a bit scary needing to tell the installer to write the boot loader to /dev/sda, worried it would mess up Windows, but this turned out to be the right thing to do. It makes sense with how EFI works, it just writes the boot loader to the same EFI FAT32 partition where the Windows boot loader lives without needing to overwrite anything, but I still have bad memories of trying to set up multi OS boot in the pre EFI days so this was still a little scary. I also was very paranoid to make sure I didn't tell it to format the EFI or Windows partitions.
+
+After the install and a reboot, the laptop booted right up to grub and booted Void Linux. I was a little worried I had messed up the Windows Boot after all, as there was no sign of it in the boot process, but another boot, and F12 to bring up the boot menu shows both a Windows and a 'void grub' option both of which work fine, the void grub one was just set as the default by the installer. (This can be changed with the `efibootmgr` command line program)
+
+Booting into Void I was pleasantly surprised by how much just worked out of the box and was set up nicely. Not only was WiFi working, but I could easily connect to WiFi Networks right from the Xfce Panel plugin. The Thinkpad brightness keys worked right out of the box, the trackpad and trackbutton had reasonable sensitivity and even two finger scroll worked right out of the box. Maybe I'm just too easily impressed-- I haven't run Linux on a laptop in quite some time, and it was never this smooth to set up before. I'm not sure how much of the credit goes to Void, to the Linux Kernel, or to Xfce, but everything fits together so much more smoothly then ever before.
+
+I did soon run into my first issue however, when I tested suspends resume and ended up with a black blinky screen with just a mouse cursor. Switching to a terminal was fine however, the problem was limited to X, and after using `xbps-install` to install the proprietary nvidia driver (it was defaulting to noveau) and updating all the packages, this worked fine. I made one mistake however, I first installed just the nvidia driver, which sucked down a bunch of other required packages like gcc to build the kernel driver. Upon reboot I couldn't run any programs from X, though again a console still worked. I realized my mistake and ran `xbps-install -S` to update everything, rebooted, and all was well. I'm guessing the nvidia driver install caused my system to end up with incompatible library versions or something. Since then I've always been running xbps-install with the -S option always and it doesn't seem to have caused any problems.
+
+In addition to suspend / resume working, I've been very happy with the hibernation support. It hibernates and wakes up pretty quickly, and it feels like magic to have youtube playing some music in a background window, hibernate the OS to disk, boot into Windows for a while, boot back into Linux, and hear the song continue from the point where it left off as if nothing had happened.
+
+One kind of weird thing with Void Linux is that the default configuration (at least the Xfce variant) comes with pulseaudio set up for audio, but with the audio muted, and doesn't come with the command line tool you need to run in order to unmute it. Luckily a quick web search names the tool and I was able to install it and unmute my audio, but why include pulseaudio but not a tool you would need to be able to make use of it?
+
+So far I've really been liking Void, but I haven't been using it long enough to develop an informed opinion of it. I used to hate all the 'Distro Reviews' I'd read in the late 1990's that were really installer reviews. The reviewer would install the Distro, use it for ten minutes and then write a review-- not particularly useful. The real test of a distro is whether or not it keeps running smooth over months as packages update, or if it craps out with weird issues. Only time will tell.
+
+
+
