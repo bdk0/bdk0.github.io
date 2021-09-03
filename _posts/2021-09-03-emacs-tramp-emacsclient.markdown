@@ -23,8 +23,9 @@ In **~/.emacs.d/init.el** add the following:
                          host ":'" (kbd "RET")))
   (term-send-raw-string (concat "mkdir -p ~/.emacs.d/server/ ; clear"
                          (kbd "RET")))
-  (copy-file "~/.emacs.d/server/server" "/ssh:c:.emacs.d/server/server" t)
-  )
+  (copy-file "~/.emacs.d/server/server" (concat "/ssh:" host ":.emacs.d/server/server") t)
+
+)
 
 (add-hook 'tramp-term-after-initialized-hook 'my-tramp-term--emacsclient-hook)
 ```
