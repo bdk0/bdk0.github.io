@@ -4,7 +4,7 @@ title:  Fixing X11 Screen Tearing on my Thinkpad P15 w/ Void Linux
 date:   2021-09-15 06:47:00 -0400
 ---
 
-I noticed today I had some screen tearing on my new Thinkpad P15, noticeable mainly when scrolling in Firefox. Since I had the same issue originally on my zGhostBSD desktop, and both systems use Nvidia GPUs, my first instinct was to attempt the same fix, however on my laptop, this gave an error: (line breaks added here for formatting)
+I noticed today I had some screen tearing on my new Thinkpad P15, noticeable mainly when scrolling in Firefox. Since I had the same issue originally on my GhostBSD desktop, and both systems use Nvidia GPUs, my first instinct was to attempt the same fix, however on my laptop, this gave an error: (line breaks added here for formatting)
 
 ```
 $ sudo nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 \
